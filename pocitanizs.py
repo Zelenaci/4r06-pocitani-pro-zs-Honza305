@@ -7,7 +7,7 @@ Created on Tue Jan 22 09:59:59 2019
 """
 
 import tkinter as tk
-from Tkinter import Button,
+from tkinter import Label, LabelFrame, Radiobutton, Entry
 from random import randint
 
 
@@ -22,18 +22,25 @@ class Application(tk.Tk):
         self.lbl.pack()
         self.btn = tk.Button(self, text='Quit', command = self.quit)
         self.btn.pack()
-        self.btn = tk.Button(self, text='Výpočet', command = self.vypocet)
-        self.btn.pack()
+        self.bt = tk.Button(self, text='Výpočet', command = self.vypocet)
+        self.bt.pack()
+        
+        self.lboper = tk.Label(self, text='Operace:', font = 'Arial')
+        self.lboper(padx = 20, pady= 10)
+        
+        self.
+        
+        self.enoprd = tk.Entry(self,)
         
     def plus(self):
         self.x = randint(1,99)
-        self.y = randint (0,100 - x)
+        self.y = randint (0,100 - self.x)
         self.v = self.x + self.y
     
     
     def minus(self):
         self.x = randint(1,99)
-        self.y = randint(0, x)
+        self.y = randint(0, self.x)
         self.v = self.x - self.y
     
     def krat(self):
@@ -47,10 +54,13 @@ class Application(tk.Tk):
         self.x = self.v * self.y
     
     def vypocet(self):
-        operace(plus, minus, krat, deleno)
-        
-
+        operace(self.plus, self.minus, self.krat, self.deleno)
+        nahoda = randint(0, 3)
+        funkce = operace[nahoda]
+        funkce()
+        print()
+        print(self.x, funkce.__name__, self.y, '=', self.vysl)
     
     
 app = Application()
-app.mainloop
+app.mainloop()
