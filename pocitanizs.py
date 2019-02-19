@@ -77,9 +77,7 @@ class Application(tk.Tk):
         self.en = Entry(self.lab,textvariable =self.intV, width=10,font = 'Arial', )
         self.en.grid(row = 1,column = 4 )
         
-        #Hodnocení
-        #self.labl = Label(self.lab,width= 10, text='?')
-        #self.labl.grid(row = 2, column=0)
+        
         
         #dobre/spatne
         self.labl= Label(self.lab,width= 5, text='D/Š')
@@ -91,14 +89,13 @@ class Application(tk.Tk):
         self.labl = Label(self.lab,width= 5, text='0')
         self.labl.grid(row=3, column = 5)
         
-        #self.but = Button(self, text='Nový příklad', command = self.)
+        
         
         self.bt = Button(self, text='Výpočet', command = self.vypocet)
         self.bt.pack()
         
         self.btn = Button(self, text='Quit', command = self.quit)
         self.btn.pack()
-        
         
         
     def plus(self):
@@ -129,13 +126,22 @@ class Application(tk.Tk):
         self.intA.set(self.x)
         self.intB.set(self.y)
     
+     #def vypocet(self):
+        #operace = (self.plus, self.minus, self.krat, self.deleno)
+        #nahoda = randint(0,3)
+        #funkce = operace[nahoda]
+        #funkce()
+        #print(self.x,funkce.__name__ ,self.y,'=', self.vys)
+    
     def vypocet(self):
-        Operace(self.plus, self.minus, self.krat, self.deleno)
-        nahoda = randint(0, 3)
-        funkce = Operace[nahoda]
-        funkce()
-        print()
-        print(self.x, funkce.__name__, self.y, '=', self.vysl)
+        vys = self.v
+        uzi = self.intV.get()
+        if vys == uzi:
+            
+        else vys!= uzi:
+            
+        
+        
     
     
 app = Application()
