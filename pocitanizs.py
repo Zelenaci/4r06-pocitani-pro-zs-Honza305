@@ -16,6 +16,7 @@ class Application(tk.Tk):
 
     def __init__(self):
         super().__init__(className=self.name)
+        
         self.title(self.name)
         self.bind("<Escape>", self.quit)
         
@@ -70,25 +71,38 @@ class Application(tk.Tk):
         self.ms = Message(self.lab, text='=', width = 30)
         self.ms.grid(row =1, column= 3)
         
-        self.intV = IntVar()
-        self.intV.set('')
+        self.strV = StringVar()
+        self.strV.set('')
         
         #vysledek
-        self.en = Entry(self.lab,textvariable =self.intV, width=10,font = 'Arial', )
+        self.en = Entry(self.lab,textvariable =self.strV, width=10,font = 'Arial', )
         self.en.grid(row = 1,column = 4 )
         
         
         
         #dobre/spatne
-        self.labl= Label(self.lab,width= 5, text='D/Š')
-        self.labl.grid(row=3,column = 3)
+        self.labDS = LabelFrame(self, width = 5, text = 'D/Š')
+        self.labDS.pack()
         
-        self.labl = Label(self.lab,width= 5, text='0')
-        self.labl.grid(row=3, column = 4)
+        #Dobře
+        self.Dmess = Message(self.labDS, text = 'Dobře', font = 'Arial 18', pady = 15)
+        self.Dmess.grid(row = 1, column = 1 ) 
         
-        self.labl = Label(self.lab,width= 5, text='0')
-        self.labl.grid(row=3, column = 5)
+        self.IntD = IntVar()
+        self.IntD.set(0)
         
+        self.envys = Entry(self.labDS, width = 10, textvariable = self.IntD )
+        self.envys.grid(row = 1, column = 3)
+        
+        #Špatně
+        self.Smess = Message(self.labDS, text = 'Špatně', font = 'Arial 18', pady = 10)
+        self.Smess.grid(row = 2, column = 1)
+
+        self.IntS = IntVar()
+        self.IntS.set(0)
+        
+        self.envys = Entry(self.labDS, width = 10, textvariable = self.IntS )
+        self.envys.grid(row = 2, column = 3)
         
         
         self.bt = Button(self, text='Výpočet', command = self.vypocet)
@@ -104,7 +118,7 @@ class Application(tk.Tk):
         self.v = self.x + self.y
         self.intA.set(self.x)
         self.intB.set(self.y)
-    
+        
     def minus(self):
         self.x = randint(1,99)
         self.y = randint(0, self.x)
@@ -126,22 +140,14 @@ class Application(tk.Tk):
         self.intA.set(self.x)
         self.intB.set(self.y)
     
-     #def vypocet(self):
-        #operace = (self.plus, self.minus, self.krat, self.deleno)
-        #nahoda = randint(0,3)
-        #funkce = operace[nahoda]
-        #funkce()
-        #print(self.x,funkce.__name__ ,self.y,'=', self.vys)
     
     def vypocet(self):
-        vys = self.v
-        uzi = self.intV.get()
+        vys = str(self.v)
+        uzi = self.strV.get()
         if vys == uzi:
-            
-        else vys!= uzi:
-            
-        
-        
+          Dobre = self.IntD.get()  
+          Dobre = Dobre +1
+          self.IntD.set(Dobre)
     
     
 app = Application()
