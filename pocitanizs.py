@@ -7,7 +7,7 @@ Created on Tue Jan 22 09:59:59 2019
 """
 
 import tkinter as tk
-from tkinter import Label,LabelFrame, Radiobutton, Entry, Button, StringVar,IntVar, Message
+from tkinter import Label,LabelFrame, Radiobutton, Entry, Button, StringVar,IntVar, Message,END
 from random import randint
 
 
@@ -53,8 +53,8 @@ class Application(tk.Tk):
         self.intA.set('')
        
         #A
-        self.en = Entry(self.lab, width=10, textvariable=self.intA , state ='readonly',font = 'Arial', )
-        self.en.grid(row = 1,column = 0 )
+        self.enA = Entry(self.lab, width=10, textvariable=self.intA , state ='readonly',font = 'Arial', )
+        self.enA.grid(row = 1,column = 0 )
         
         #operace
         self.msg = Message(self.lab,textvariable= self.p)
@@ -64,8 +64,8 @@ class Application(tk.Tk):
         self.intB.set('')
         
         #B
-        self.en = Entry(self.lab, width=10,textvariable= self.intB, state ='readonly',font = 'Arial', )
-        self.en.grid(row = 1,column = 2 )
+        self.enB = Entry(self.lab, width=10,textvariable= self.intB, state ='readonly',font = 'Arial', )
+        self.enB.grid(row = 1,column = 2 )
         
         #=
         self.ms = Message(self.lab, text='=', width = 30)
@@ -148,7 +148,24 @@ class Application(tk.Tk):
           Dobre = self.IntD.get()  
           Dobre = Dobre +1
           self.IntD.set(Dobre)
-    
+        elif vys != uzi:
+            Spatne = self.IntS.get()
+            Spatne = Spatne + 1
+            self.IntS.set(Spatne)
+        
+    def novypriklad(self):
+        
+        self.enA= randint(1,10)
+        self.enB= randint(1,10)
+         = self.enA * self.enB
+
+        self.enA.delete(0, END)
+        self.enB.insert(0, str(self.enA) )
+        self.enA.delete(0, END)
+        self.enB.insert(0, str(self.enB) )
+        
+        
+        
     
 app = Application()
 app.mainloop()
