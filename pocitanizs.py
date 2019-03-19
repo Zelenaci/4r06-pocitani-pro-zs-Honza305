@@ -153,16 +153,16 @@ class Application(tk.Tk):
             Spatne = Spatne + 1
             self.IntS.set(Spatne)
         
-    def novypriklad(self):
+#    def novypriklad(self):
         
-        self.enA= randint(1,10)
-        self.enB= randint(1,10)
-         = self.enA * self.enB
+#        self.enA= randint(1,10)
+#        self.enB= randint(1,10)
+#        self.enA * self.enB
 
-        self.enA.delete(0, END)
-        self.enB.insert(0, str(self.enA) )
-        self.enA.delete(0, END)
-        self.enB.insert(0, str(self.enB) )
+#        self.enA.delete(0, END)
+#        self.enB.insert(0, str(self.enA) )
+#        self.enA.delete(0, END)
+#        self.enB.insert(0, str(self.enB) )
         
         
         
